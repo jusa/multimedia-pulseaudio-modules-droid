@@ -746,8 +746,8 @@ void pa_droid_sink_set_voice_control(pa_sink* sink, bool enable) {
         pa_assert(!u->sink_input_volume_changed_hook_slot);
 
         if (u->use_hw_volume) {
-            pa_sink_set_set_volume_callback(u->sink, NULL);
             pa_sink_set_write_volume_callback(u->sink, NULL);
+            pa_sink_set_set_volume_callback(u->sink, NULL);
         }
 
         u->sink_input_volume_changed_hook_slot = pa_hook_connect(&u->core->hooks[PA_CORE_HOOK_SINK_INPUT_VOLUME_CHANGED],
